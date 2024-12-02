@@ -7,7 +7,7 @@ public class HomePage {
     @FindBy(className = "login")
     public WebElement btn_login;
 
-    @FindBy(id = "nameofuser")
-    public WebElement nameOfUser;
+    @FindBy(className = "header_user_info")
+    public WebElement userinfo;
 
 }
