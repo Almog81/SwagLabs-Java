@@ -1,5 +1,6 @@
 package WorkFlows;
 import Utilities.CommonOps;
+import Utilities.UiAction;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
@@ -11,10 +12,10 @@ public class WebFlow extends CommonOps {
         driver.get(url);
     }
     public static void loginAction(String user, String pass ) {
-        QaHomePage.btn_login.click();
-        QaLoginPage.txt_userName.sendKeys(user);
-        QaLoginPage.txt_Password.sendKeys(pass);
-        QaLoginPage.btn_login.click();
+        UiAction.clickAction(QaHomePage.btn_login);
+        UiAction.fillAction(QaLoginPage.txt_userName, user);
+        UiAction.fillAction(QaLoginPage.txt_Password, pass);
+        UiAction.clickAction(QaLoginPage.btn_login);
     }
 
     // Verify Text In Element

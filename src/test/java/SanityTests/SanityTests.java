@@ -14,5 +14,4 @@ public class SanityTests extends CommonOps {
         WebFlow.verifyTextInElement(QaHomePage.elm_userName, user);
     }
 
-
 }
