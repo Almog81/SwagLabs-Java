@@ -4,10 +4,15 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 public class HomePage {
-    @FindBy(className = "login")
+    @FindBy(id = "login")
     public WebElement btn_login;
 
-    @FindBy(className = "header_user_info")
-    public WebElement userinfo;
+    @FindBy(id = "userName-value")
+    public WebElement elm_userName;
 
+    @FindBy(xpath = "//span[contains(text(), 'Book Store')]")
+    public WebElement btn_BookStore;
+
+    @FindBy(xpath = "//span[contains(text(), 'Profile')]")
+    public WebElement btn_Profile;
 }
