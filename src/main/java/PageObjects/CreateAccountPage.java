@@ -1,38 +1,28 @@
 package PageObjects;
-
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 public class CreateAccountPage {
 
-    @FindBy(id = "id_gender1")
-    public WebElement male;
+    @FindBy(id = "firstname")
+    public WebElement txt_firstName;
 
-    @FindBy(id = "id_gender2")
-    public WebElement female;
+    @FindBy(id = "lastname")
+    public WebElement txt_lastName;
 
-    @FindBy(id = "customer_firstname")
-    public WebElement txt_customerFirstname;
+    @FindBy(id = "email_address")
+    public WebElement txt_email;
 
-    @FindBy(id = "customer_lastname")
-    public WebElement txt_customerLastname;
+    @FindBy(id = "password")
+    public WebElement txt_password;
 
-    @FindBy(id = "passwd")
-    public WebElement txt_userPassword;
+    @FindBy(id = "password-confirmation")
+    public WebElement txt_passwordConfirmation;
 
-    @FindBy(id = "days")
-    public WebElement drop_days;
+    @FindBy(css = ".action.submit.primary")
+    public WebElement btn_submit;
 
-    @FindBy(id = "months")
-    public WebElement drop_months;
-
-    @FindBy(id = "years")
-    public WebElement drop_years;
-
-    @FindBy(id = "newsletter")
-    public WebElement box_newsletter;
-
-    @FindBy(css = "#submitAccount > span")
-    public WebElement btn_submitAccount;
+    @FindBy(className = "message-success")
+    public WebElement elm_messageSuccess;
 
 }

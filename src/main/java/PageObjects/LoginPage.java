@@ -1,17 +1,16 @@
 package PageObjects;
-
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 public class LoginPage {
     //login
-    @FindBy(id = "userName")
-    public WebElement txt_userName;
+    @FindBy(id = "email")
+    public WebElement txt_email;
 
-    @FindBy(id = "password")
+    @FindBy(id = "pass")
     public WebElement txt_Password;
 
-    @FindBy(id = "login")
-    public WebElement btn_login;
+    @FindBy(css = ".action.login.primary")
+    public WebElement btn_signIn;
 
 }
