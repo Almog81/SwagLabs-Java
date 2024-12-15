@@ -1,0 +1,14 @@
+{
+  "tests": [
+    {
+      "email": "user4Test@example.com",
+      "password": "!@userPassword1234",
+      "expectedName": "Sam One"
+    },
+    {
+      "email": "user4Test2@example.com",
+      "password": "!@userPassword1234",
+      "expectedName": "John Doe"
+    }
+  ]
+} 

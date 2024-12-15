@@ -17,6 +17,13 @@ public class WebFlow extends CommonOps {
         UiAction.clickAction(LumaLoginPage.btn_signIn);
     }
 
+    public static void logOutAction(String email, String pass ) {
+        UiAction.clickAction(LumaHomePage.btn_login);
+        UiAction.fillAction(LumaLoginPage.txt_email, email);
+        UiAction.fillAction(LumaLoginPage.txt_Password, pass);
+        UiAction.clickAction(LumaLoginPage.btn_signIn);
+    }
+
     public static void CreateAccountAction(String firstName, String lastName, String email, String password ) {
         UiAction.clickAction(LumaHomePage.btn_CreateAccount);
         UiAction.fillAction(LumaCreateAccountPage.txt_firstName, firstName);
