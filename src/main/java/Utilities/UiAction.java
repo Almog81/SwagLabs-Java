@@ -17,6 +17,7 @@ public class UiAction extends CommonOps{
         elem.sendKeys(text);
     }
     public static String getText(WebElement elem){
+        waitForPageLoad();
         wait.until(ExpectedConditions.visibilityOf(elem));
         return elem.getText();
     }

@@ -17,11 +17,10 @@ public class WebFlow extends CommonOps {
         UiAction.clickAction(LumaLoginPage.btn_signIn);
     }
 
-    public static void logOutAction(String email, String pass ) {
-        UiAction.clickAction(LumaHomePage.btn_login);
-        UiAction.fillAction(LumaLoginPage.txt_email, email);
-        UiAction.fillAction(LumaLoginPage.txt_Password, pass);
-        UiAction.clickAction(LumaLoginPage.btn_signIn);
+    public static void signOutAction() {
+        UiAction.clickAction(LumaHomePage.btn_actionSwitch);
+        UiAction.clickAction(LumaHomePage.signOut);
+        verifyElementVisible(LumaHomePage.btn_login);
     }
 
     public static void CreateAccountAction(String firstName, String lastName, String email, String password ) {
@@ -36,6 +35,7 @@ public class WebFlow extends CommonOps {
 
     // Verify Text In Element
     public static void verifyTextInElement(WebElement elem, String expected) {
+        UiAction.isElementVisible(elem);
         assertEquals(UiAction.getText(elem), expected);
     }
 

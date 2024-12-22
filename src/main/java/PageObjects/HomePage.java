@@ -11,4 +11,10 @@ public class HomePage {
 
     @FindBy(xpath = "//a[contains(text(), 'Create an Account')]")
     public WebElement btn_CreateAccount;
+
+    @FindBy(css = ".action.switch")
+    public WebElement btn_actionSwitch;
+
+    @FindBy(xpath = "//a[contains(text(), 'Sign Out')]")
+    public WebElement signOut;
 }

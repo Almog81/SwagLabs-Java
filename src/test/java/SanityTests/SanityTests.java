@@ -11,11 +11,12 @@ public class SanityTests extends CommonOps {
     public void test01_Login(JSONObject testData) {
         String email = ManageDDT.getDataFromJSON(testData, "email");
         String password = ManageDDT.getDataFromJSON(testData, "password");
-        String expectedName = ManageDDT.getDataFromJSON(testData, "expectedName");
+        String expectedName = ManageDDT.getDataFromJSON(testData, "name");
         
         WebFlow.naviToHomePage();
         WebFlow.loginAction(email, password);
         WebFlow.verifyTextInElement(LumaHomePage.elm_loggedIn, "Welcome, " + expectedName + "!");
+        WebFlow.signOutAction();
     }
 
     @Test(dataProvider = "createAccountData", dataProviderClass = ManageDDT.class)
@@ -28,5 +29,6 @@ public class SanityTests extends CommonOps {
         WebFlow.naviToHomePage();
         WebFlow.CreateAccountAction(firstname, lastname, email, password);
         WebFlow.verifyElementVisible(LumaCreateAccountPage.elm_messageSuccess);
+        WebFlow.signOutAction();
     }
 }
