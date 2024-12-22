@@ -7,15 +7,15 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.asserts.SoftAssert;
 
 public class Base {
-    protected static String url = "https://magento.softwaretestingboard.com/";
+    protected static String url = "https://parabank.parasoft.com/";
     //General
     protected static WebDriverWait wait;
     protected static WebDriver driver;
     protected static SoftAssert softAssert;
 
     //PageObject
-    protected static HomePage LumaHomePage;
-    protected static LoginPage LumaLoginPage;
-    protected static CreateAccountPage LumaCreateAccountPage;
+    protected static HomePage ParaHomePage;
+    protected static LoginPage ParaLoginPage;
+    protected static CreateAccountPage ParaCreateAccountPage;
 
 }

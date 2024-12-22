@@ -6,8 +6,8 @@ import org.openqa.selenium.support.PageFactory;
 
 public class ManagePages extends CommonOps{
     public static void initPages(){
-        LumaHomePage = PageFactory.initElements(driver, HomePage.class);
-        LumaLoginPage = PageFactory.initElements(driver, LoginPage.class);
-        LumaCreateAccountPage = PageFactory.initElements(driver, CreateAccountPage.class);
+        ParaHomePage = PageFactory.initElements(driver, HomePage.class);
+        ParaLoginPage = PageFactory.initElements(driver, LoginPage.class);
+        ParaCreateAccountPage = PageFactory.initElements(driver, CreateAccountPage.class);
     }
 }

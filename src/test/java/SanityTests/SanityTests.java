@@ -9,26 +9,17 @@ public class SanityTests extends CommonOps {
 
     @Test(dataProvider = "loginData", dataProviderClass = ManageDDT.class)
     public void test01_Login(JSONObject testData) {
-        String email = ManageDDT.getDataFromJSON(testData, "email");
-        String password = ManageDDT.getDataFromJSON(testData, "password");
-        String expectedName = ManageDDT.getDataFromJSON(testData, "name");
-        
         WebFlow.naviToHomePage();
-        WebFlow.loginAction(email, password);
-        WebFlow.verifyTextInElement(LumaHomePage.elm_loggedIn, "Welcome, " + expectedName + "!");
+        WebFlow.loginAction(testData);
+        WebFlow.verifyElementVisible(ParaHomePage.signOut);
         WebFlow.signOutAction();
     }
 
     @Test(dataProvider = "createAccountData", dataProviderClass = ManageDDT.class)
     public void test02_CreateAccount(JSONObject testData) {
-        String firstname = ManageDDT.getDataFromJSON(testData, "firstname");
-        String lastname = ManageDDT.getDataFromJSON(testData, "lastname");
-        String email = ManageDDT.getDataFromJSON(testData, "email");
-        String password = ManageDDT.getDataFromJSON(testData, "password");
-        
         WebFlow.naviToHomePage();
-        WebFlow.CreateAccountAction(firstname, lastname, email, password);
-        WebFlow.verifyElementVisible(LumaCreateAccountPage.elm_messageSuccess);
+        WebFlow.CreateAccountAction(testData);
+        WebFlow.verifyElementVisible(ParaCreateAccountPage.elm_messageSuccess);
         WebFlow.signOutAction();
     }
 }

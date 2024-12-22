@@ -1,16 +1,28 @@
 {
   "tests": [
     {
-      "firstname": "Sam",
-      "lastname": "One",
-      "email": "user4Test1224@example.com",
-      "password": "!@userPassword1234"
+      "firstName": "Sam",
+      "lastName": "One",
+      "address": "123 Maple St",
+      "city": "Springfield",
+      "state": "IL",
+      "zipCode": "62701",
+      "phone": "555-123-4567",
+      "ssn": "111-22-3333",
+      "username": "samone123456",
+      "password": "!@Password123"
     },
     {
-      "firstname": "John",
-      "lastname": "Doe",
-      "email": "john.doe@example.com",
-      "password": "!@userPassword1234"
+      "firstName": "John",
+      "lastName": "Doe",
+      "address": "456 Oak St",
+      "city": "Los Angeles",
+      "state": "CA",
+      "zipCode": "90001",
+      "phone": "555-987-6543",
+      "ssn": "444-55-6666",
+      "username": "johndoe45678",
+      "password": "!@Password123"
     }
   ]
 } 

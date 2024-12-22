@@ -4,13 +4,13 @@ import org.openqa.selenium.support.FindBy;
 
 public class LoginPage {
     //login
-    @FindBy(id = "email")
-    public WebElement txt_email;
+    @FindBy(name = "username")
+    public WebElement txt_username;
 
-    @FindBy(id = "pass")
+    @FindBy(name = "password")
     public WebElement txt_Password;
 
-    @FindBy(css = ".action.login.primary")
-    public WebElement btn_signIn;
+    @FindBy(xpath = "//*[@value=\"Log In\"]")
+    public WebElement btn_login;
 
 }
