@@ -34,5 +34,43 @@ public class UiAction extends CommonOps{
         wait.until(webDriver -> ((JavascriptExecutor) webDriver).executeScript("return document.readyState").equals("complete"));
     }
 
+    public static boolean isImageDisplayed(WebElement imageElement) {
+        waitForPageLoad();
+        return isElementVisible(imageElement) && isImageSizeValid(imageElement) && isImageLoaded(imageElement);
+    }
+
+    private static boolean isImageSizeValid(WebElement imageElement) {
+        int width = imageElement.getSize().getWidth();
+        int height = imageElement.getSize().getHeight();
+
+        if (width > 0 && height > 0) {
+            return true;
+        } else {
+            System.out.println("Image dimensions are invalid: width=" + width + ", height=" + height);
+            return false;
+        }
+    }
+
+    private static boolean isImageLoaded(WebElement imageElement) {
+        try {
+            JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
+            boolean isLoaded = (boolean) jsExecutor.executeScript(
+                    "return arguments[0].complete && " +
+                            "arguments[0].naturalWidth > 0 && " +
+                            "arguments[0].naturalHeight > 0;",
+                    imageElement
+            );
+
+            if (!isLoaded) {
+                System.out.println("Image is not fully loaded.");
+            }
+
+            return isLoaded;
+        } catch (Exception e) {
+            System.out.println("Error while checking image load status: " + e.getMessage());
+            return false;
+        }
+    }
+
 
 }

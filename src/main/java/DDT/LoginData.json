@@ -1,14 +1,24 @@
 {
   "tests": [
     {
-      "username": "samone123",
-      "password": "!@Password123",
-      "name": "Sam One"
+      "username": "standard_user",
+      "password": "secret_sauce",
+      "typeOfUser": "standard"
     },
     {
-      "username": "johndoe456",
-      "password": "!@Password123",
-      "name": "John Doe"
+      "username": "locked_out_user",
+      "password": "secret_sauce",
+      "typeOfUser": "locked_out"
+    },
+    {
+      "username": "problem_user",
+      "password": "secret_sauce",
+      "typeOfUser": "problem"
+    },
+    {
+      "username": "performance_glitch_user",
+      "password": "secret_sauce",
+      "typeOfUser": "performance_glitch"
     }
   ]
 } 

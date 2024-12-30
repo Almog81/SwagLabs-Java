@@ -1,15 +1,19 @@
 package PageObjects;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import java.util.List;
 
 public class HomePage {
 
-    @FindBy(className = "logged-in")
-    public WebElement elm_loggedIn;
+    @FindBy(className = "product_label")
+    public WebElement elm_productLabel;
 
-    @FindBy(xpath = "//a[contains(text(), 'Register')]")
-    public WebElement btn_Register;
+    @FindBy(className = "bm-burger-button")
+    public WebElement btn_menu;
 
-    @FindBy(xpath = "//a[contains(text(), 'Log Out')]")
-    public WebElement signOut;
+    @FindBy(id = "logout_sidebar_link")
+    public WebElement btn_logout;
+
+    @FindBy(className = "inventory_item_img")
+    public List<WebElement> img_inventory;
 }

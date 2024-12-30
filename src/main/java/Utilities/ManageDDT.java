@@ -5,7 +5,7 @@ import org.testng.annotations.DataProvider;
 
 public class ManageDDT extends CommonOps {
     
-    private static final String DDT_PATH = "src/main/java/DDT/";
+
 
     @DataProvider(name = "loginData")
     public static Object[][] getLoginData() {

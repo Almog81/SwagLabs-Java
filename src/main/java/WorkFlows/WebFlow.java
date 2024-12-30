@@ -4,6 +4,7 @@ import Utilities.UiAction;
 import org.json.simple.JSONObject;
 import org.openqa.selenium.WebElement;
 
+import static Utilities.ManageDDT.getLoginData;
 import static org.testng.Assert.assertEquals;
 
 
@@ -12,29 +13,66 @@ public class WebFlow extends CommonOps {
         driver.get(url);
     }
     public static void loginAction(JSONObject userData) {
-        UiAction.fillAction(ParaLoginPage.txt_username, userData.get("username").toString());
-        UiAction.fillAction(ParaLoginPage.txt_Password,  userData.get("password").toString());
-        UiAction.clickAction(ParaLoginPage.btn_login);
+        UiAction.fillAction(SwagLoginPage.txt_username, userData.get("username").toString());
+        UiAction.fillAction(SwagLoginPage.txt_Password,  userData.get("password").toString());
+        UiAction.clickAction(SwagLoginPage.btn_login);
+        verifyLoginResult(userData.get("username").toString());
+    }
+
+    public static void safeLoginAction() {
+        Object[][] loginData = getDataFromJson(DDT_PATH + "LoginData.json");
+        JSONObject standardUser = (JSONObject) loginData[0][0];
+        loginAction(standardUser);
     }
 
     public static void signOutAction() {
-        UiAction.clickAction(ParaHomePage.signOut);
+        UiAction.clickAction(SwagHomePage.btn_menu);
+        UiAction.clickAction(SwagHomePage.btn_logout);
     }
 
-    public static void CreateAccountAction(JSONObject userData) {
-        UiAction.clickAction(ParaHomePage.btn_Register);
-        UiAction.fillAction(ParaCreateAccountPage.txt_firstName, userData.get("firstName").toString());
-        UiAction.fillAction(ParaCreateAccountPage.txt_lastName, userData.get("lastName").toString());
-        UiAction.fillAction(ParaCreateAccountPage.txt_address, userData.get("address").toString());
-        UiAction.fillAction(ParaCreateAccountPage.txt_city, userData.get("city").toString());
-        UiAction.fillAction(ParaCreateAccountPage.txt_state, userData.get("state").toString());
-        UiAction.fillAction(ParaCreateAccountPage.txt_zipCode, userData.get("zipCode").toString());
-        UiAction.fillAction(ParaCreateAccountPage.txt_phone, userData.get("phone").toString());
-        UiAction.fillAction(ParaCreateAccountPage.txt_ssn, userData.get("ssn").toString());
-        UiAction.fillAction(ParaCreateAccountPage.username, userData.get("username").toString());
-        UiAction.fillAction(ParaCreateAccountPage.txt_password, userData.get("password").toString());
-        UiAction.fillAction(ParaCreateAccountPage.txt_passwordConfirmation, userData.get("password").toString());
-        UiAction.clickAction(ParaCreateAccountPage.btn_submit);
+    public static void verifyLoginResult(String typeOfUser) {
+        switch (typeOfUser) {
+            case "standard_user":
+                verifyElementVisible(SwagHomePage.elm_productLabel);
+                System.out.println("Login successful for standard user.");
+                break;
+
+            case "locked_out_user":
+                verifyElementVisible(SwagLoginPage.elm_errorMessage);
+                String errorMessage = UiAction.getText(SwagLoginPage.elm_errorMessage);
+                if (!errorMessage.contains("Sorry, this user has been locked out.")) {
+                    throw new AssertionError("Expected locked out error message is missing.");
+                }
+                System.out.println("Locked out user verified successfully.");
+                break;
+
+            //TODO deterrent Test
+            case "problem_user":
+                verifyElementVisible(SwagHomePage.elm_productLabel);
+                if (!UiAction.isImageDisplayed(SwagHomePage.img_inventory.get(0))) {
+                    throw new AssertionError("Problem user: Image issue not detected as expected.");
+                }
+                System.out.println("Problem user issues verified successfully.");
+                break;
+
+            case "performance_glitch_user":
+                long startTime = System.currentTimeMillis();
+                verifyElementVisible(SwagHomePage.elm_productLabel);
+                long endTime = System.currentTimeMillis();
+                if ((endTime - startTime) > 5000) {
+                    System.out.println("Performance glitch user: Verified delay in loading.");
+                } else {
+                    System.out.println("Performance glitch user: No significant delay detected.");
+                }
+                break;
+
+            default:
+                throw new IllegalArgumentException("Unknown user type: " + typeOfUser);
+        }
+    }
+
+    public static void addToCartAction() {
+        //Todo
     }
 
     // Verify Text In Element
