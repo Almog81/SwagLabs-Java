@@ -15,7 +15,7 @@
         <bouncycastle.version>1.78</bouncycastle.version>
         <commons-compress.version>1.26.0</commons-compress.version>
         <commons-io.version>2.15.1</commons-io.version>
-        <selenium.version>4.15.0</selenium.version>
+        <selenium.version>4.9.1</selenium.version>
     </properties>
 
     <dependencies>
@@ -59,9 +59,16 @@
 
         <dependency>
             <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>2.0.9</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.slf4j</groupId>
             <artifactId>slf4j-simple</artifactId>
             <version>2.0.9</version>
         </dependency>
+
 
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
