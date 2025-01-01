@@ -20,7 +20,6 @@ public class CommonOps extends Base {
     public void StartSession (){
         WebDriverManager.firefoxdriver().setup();
         driver=new FirefoxDriver();
-
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
         wait = new WebDriverWait(driver, Duration.ofSeconds(15));
@@ -48,4 +47,6 @@ public class CommonOps extends Base {
             throw new RuntimeException("Error reading JSON file: " + e.getMessage());
         }
     }
+
+
 }

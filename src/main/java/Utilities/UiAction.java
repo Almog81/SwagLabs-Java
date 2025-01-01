@@ -1,5 +1,6 @@
 package Utilities;
 
+import io.appium.java_client.android.AndroidDriver;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebElement;
@@ -30,9 +31,16 @@ public class UiAction extends CommonOps{
             return false;
         }
     }
+
     public static void waitForPageLoad() {
-        wait.until(webDriver -> ((JavascriptExecutor) webDriver).executeScript("return document.readyState").equals("complete"));
+        if (driver instanceof AndroidDriver) {
+            wait.until(driver -> ((AndroidDriver) driver).currentActivity() != null && !((AndroidDriver) driver).currentActivity().isEmpty());
+        } else if (driver instanceof JavascriptExecutor) {
+            wait.until(webDriver -> ((JavascriptExecutor) webDriver)
+                    .executeScript("return document.readyState").equals("complete"));
+        }
     }
+
 
     public static boolean isImageDisplayed(WebElement imageElement) {
         waitForPageLoad();
