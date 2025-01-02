@@ -1,4 +1,5 @@
 package Utilities;
+import MobilePageObject.MobileHomePage;
 import MobilePageObject.MobileLoginPage;
 import PageObjects.CartPage;
 import PageObjects.HomePage;
@@ -25,5 +26,6 @@ public class Base {
     protected static CartPage swagCartPage;
 
     protected static MobileLoginPage mobileLoginPage;
+    protected static MobileHomePage mobileHomePage;
 
 }

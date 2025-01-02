@@ -5,7 +5,7 @@ import WorkFlows.WebFlow;
 import org.json.simple.JSONObject;
 import org.testng.annotations.Test;
 
-public class SanityTests extends CommonOps {
+public class SanityWebTests extends CommonOps {
 
     @Test(dataProvider = "loginData", dataProviderClass = ManageDDT.class)
     public void test01_Login(JSONObject testData) {

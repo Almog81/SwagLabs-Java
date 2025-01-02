@@ -3,8 +3,6 @@ import Utilities.CommonOps;
 import Utilities.UiAction;
 import org.json.simple.JSONObject;
 import org.openqa.selenium.WebElement;
-
-import static Utilities.ManageDDT.getLoginData;
 import static org.testng.Assert.assertEquals;
 
 

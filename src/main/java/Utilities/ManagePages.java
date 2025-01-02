@@ -1,4 +1,5 @@
 package Utilities;
+import MobilePageObject.MobileHomePage;
 import MobilePageObject.MobileLoginPage;
 import PageObjects.CartPage;
 import PageObjects.HomePage;
@@ -12,6 +13,6 @@ public class ManagePages extends CommonOps{
         swagCartPage = PageFactory.initElements(driver, CartPage.class);
 
         mobileLoginPage = PageFactory.initElements(driver, MobileLoginPage.class );
-
+        mobileHomePage = PageFactory.initElements(driver, MobileHomePage.class);
     }
 }

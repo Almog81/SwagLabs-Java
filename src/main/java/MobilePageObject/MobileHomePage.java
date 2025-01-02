@@ -13,7 +13,7 @@ public class MobileHomePage {
     @FindBy(xpath = "//*[@content-desc=\"test-Menu\"]")
     public WebElement btn_menu;
 
-    @FindBy(id = "logout_sidebar_link")
+    @FindBy(xpath = "//*[@content-desc=\"test-LOGOUT\"]")
     public WebElement btn_logout;
 
     @FindBy(className = "inventory_item_img")
